@@ -1,0 +1,416 @@
+Guía de Usuario: Cerebro Estudiante
+ Introducción
+ Bienvenido a Cerebro Estudiante, tu aplicación web personal para organizar toda tu
+ vida académica. Inspirada en el concepto de "Segundo Cerebro", esta herramienta te
+ ayudará a capturar, organizar y recuperar información de manera eficiente,
+ permitiéndote concentrarte en lo que realmente importa: aprender y crecer
+ académicamente.
+ Esta guía te mostrará todas las funcionalidades disponibles y cómo sacarles el máximo
+ provecho para mejorar tu experiencia de estudio.
+ Índice
+ 1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+10. 
+11. 
+12. 
+13. 
+14. 
+15. 
+Primeros Pasos
+ Dashboard
+ Materias
+ Tareas
+ Notas
+ Calendario
+ Recursos
+ Hábitos
+ Pomodoro
+ Progreso
+ Estadísticas
+ Configuración
+ Exportación e Importación de Datos
+ Accesibilidad
+ Preguntas Frecuentes
+Primeros Pasos
+ Instalación
+ Cerebro Estudiante es una aplicación web que funciona directamente en tu navegador.
+ No requiere instalación ni conexión a internet para funcionar, ya que utiliza el
+ almacenamiento local de tu navegador.
+ Para comenzar a usar la aplicación:
+ 1. 
+2. 
+3. 
+Descomprime el archivo ZIP que has recibido
+ Abre el archivo 
+index.html en tu navegador favorito (Chrome, Firefox, Safari,
+ Edge)
+ ¡Listo! La aplicación se cargará y estará lista para usar
+ Tour Inicial
+ La primera vez que abras la aplicación, te recomendamos realizar el tour guiado para
+ familiarizarte con todas las funcionalidades. Puedes iniciarlo en cualquier momento
+ haciendo clic en el botón "Tour" en la tarjeta de bienvenida del Dashboard.
+ Configuración Inicial
+ Antes de comenzar a utilizar la aplicación, te recomendamos:
+ 1. 
+2. 
+3. 
+Personalizar tu perfil: Haz clic en el icono de usuario en la esquina superior
+ derecha y selecciona "Editar perfil"
+ Configurar tus preferencias: Visita la sección de Configuración para ajustar el tema,
+ notificaciones y otras opciones
+ Crear tus materias: Comienza añadiendo las materias que estás cursando
+ actualmente
+ Dashboard
+ El Dashboard es tu centro de control, donde podrás ver un resumen de toda tu
+ información académica en un solo lugar.
+ Elementos del Dashboard
+ • 
+• 
+Tarjeta de Bienvenida: Acceso rápido para añadir elementos y iniciar el tour
+ Tareas Pendientes: Muestra tus próximas tareas ordenadas por fecha límite y
+ prioridad
+• 
+• 
+• 
+• 
+• 
+Próximos Eventos: Visualiza tus eventos académicos más cercanos
+ Pomodoro: Acceso rápido al temporizador Pomodoro
+ Hábitos de Hoy: Seguimiento de tus hábitos diarios
+ Notas Recientes: Acceso a tus últimas notas
+ Mis Materias: Listado de tus materias actuales
+ Añadir Rápido
+ El botón "Añadir" en la tarjeta de bienvenida te permite crear rápidamente: - Tareas 
+Notas - Eventos - Materias - Hábitos
+ Materias
+ Las materias son la estructura principal para organizar toda tu información académica.
+ Crear una Materia
+ 1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+Ve a la sección "Materias"
+ Haz clic en el botón "Añadir Materia"
+ Completa el formulario con:
+ Nombre de la materia
+ Descripción (opcional)
+ Color (para identificarla fácilmente)
+ Profesor (opcional)
+ Horario (opcional)
+ Haz clic en "Guardar"
+ Gestionar Materias
+ Desde la vista de materias puedes: - Ver todas tus materias en tarjetas organizadas 
+Hacer clic en una materia para ver sus detalles - Editar la información de una materia 
+Eliminar una materia (esto no eliminará las tareas, notas o eventos asociados) - Ver las
+ tareas, notas y eventos asociados a cada materia
+ Detalles de Materia
+ Al hacer clic en una materia, accederás a su vista detallada donde podrás: - Ver toda la
+ información de la materia - Acceder a pestañas con: - Tareas asociadas - Notas asociadas- Eventos asociados - Recursos asociados - Calificaciones asociadas
+Tareas
+ El sistema de tareas te permite gestionar todas tus actividades académicas con fechas
+ límite y prioridades.
+ Crear una Tarea
+ 1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+10. 
+Ve a la sección "Tareas"
+ Haz clic en el botón "Añadir Tarea"
+ Completa el formulario con:
+ Título de la tarea
+ Descripción (opcional)
+ Materia asociada (opcional)
+ Fecha límite (opcional)
+ Prioridad (Alta, Media, Baja)
+ Etiquetas (opcional)
+ Haz clic en "Guardar"
+ Gestionar Tareas
+ Desde la vista de tareas puedes: - Ver todas tus tareas organizadas por fecha o materia 
+Filtrar tareas por estado, materia, prioridad o etiquetas - Marcar tareas como
+ completadas - Editar tareas existentes - Eliminar tareas
+ Detalles de Tarea
+ Al hacer clic en una tarea, accederás a su vista detallada donde podrás: - Ver toda la
+ información de la tarea - Añadir subtareas - Adjuntar archivos (enlaces) - Ver el historial
+ de cambios - Establecer recordatorios
+ Notas
+ El sistema de notas te permite capturar y organizar tus apuntes, ideas y conocimientos.
+ Crear una Nota
+ 1. 
+2. 
+3. 
+4. 
+5. 
+Ve a la sección "Notas"
+ Haz clic en el botón "Añadir Nota"
+ Completa el formulario con:
+ Título de la nota
+ Materia asociada (opcional)
+Etiquetas (opcional)
+ 6. 
+7. 
+Haz clic en "Crear" para abrir el editor
+ Editor de Notas
+ El editor de notas te permite: - Formatear texto (negrita, cursiva, subrayado, etc.) - Crear
+ listas numeradas y con viñetas - Insertar enlaces - Crear tablas - Insertar imágenes
+ (mediante URLs) - Organizar el contenido con encabezados
+ Gestionar Notas
+ Desde la vista de notas puedes: - Ver todas tus notas organizadas por fecha o materia 
+Buscar notas por título o contenido - Filtrar notas por materia o etiquetas - Editar notas
+ existentes - Eliminar notas
+ Detalles de Nota
+ Al hacer clic en una nota, accederás al editor donde podrás: - Ver y editar el contenido de
+ la nota - Cambiar el título, materia o etiquetas - Ver el historial de versiones - Exportar la
+ nota en diferentes formatos
+ Calendario
+ El calendario te permite visualizar y gestionar todos tus eventos académicos.
+ Crear un Evento
+ 1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+10. 
+Ve a la sección "Calendario"
+ Haz clic en el botón "Añadir Evento" o directamente en el día deseado
+ Completa el formulario con:
+ Título del evento
+ Descripción (opcional)
+ Materia asociada (opcional)
+ Fecha y hora
+ Tipo de evento (Clase, Examen, Entrega, Otro)
+ Recordatorio (opcional)
+ Haz clic en "Guardar"
+Vistas del Calendario
+ El calendario ofrece diferentes vistas: - Mes: Vista general de todos los eventos del mes - 
+Semana: Vista detallada de los eventos de la semana - Día: Vista detallada de los
+ eventos de un día específico - Lista: Vista en formato lista de todos los eventos
+ Gestionar Eventos
+ Desde el calendario puedes: - Ver todos tus eventos organizados cronológicamente 
+Filtrar eventos por materia o tipo - Editar eventos existentes - Eliminar eventos 
+Configurar recordatorios
+ Recursos
+ La sección de recursos te permite organizar enlaces, archivos y materiales de estudio.
+ Añadir un Recurso
+ 1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+10. 
+Ve a la sección "Recursos"
+ Haz clic en el botón "Añadir Recurso"
+ Completa el formulario con:
+ Título del recurso
+ Descripción (opcional)
+ Materia asociada (opcional)
+ Tipo de recurso (Enlace, Libro, Artículo, Video, Otro)
+ URL o referencia
+ Etiquetas (opcional)
+ Haz clic en "Guardar"
+ Gestionar Recursos
+ Desde la vista de recursos puedes: - Ver todos tus recursos organizados por tipo o
+ materia - Filtrar recursos por materia, tipo o etiquetas - Editar recursos existentes 
+Eliminar recursos - Acceder directamente a los enlaces guardados
+ Hábitos
+ El seguimiento de hábitos te ayuda a desarrollar rutinas de estudio efectivas.
+Crear un Hábito
+ 1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+Ve a la sección "Hábitos"
+ Haz clic en el botón "Añadir Hábito"
+ Completa el formulario con:
+ Nombre del hábito
+ Descripción (opcional)
+ Frecuencia (Diaria, Semanal)
+ Días de la semana (para hábitos semanales)
+ Meta diaria (cantidad y unidad)
+ Haz clic en "Guardar"
+ Seguimiento de Hábitos
+ Para cada hábito puedes: - Registrar tu progreso diario - Ver tu historial de seguimiento 
+Analizar tu consistencia con gráficos - Editar o eliminar hábitos
+ Vista de Calendario
+ La vista de calendario de hábitos te permite: - Ver tu progreso diario en formato
+ calendario - Identificar patrones y tendencias - Mantener tu racha de días consecutivos
+ Pomodoro
+ La técnica Pomodoro te ayuda a estudiar con mayor concentración, alternando periodos
+ de trabajo intenso con descansos cortos.
+ Usar el Temporizador Pomodoro
+ 1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+Ve a la sección "Pomodoro"
+ Configura los tiempos (por defecto: 25 minutos de trabajo, 5 de descanso corto, 15
+ de descanso largo)
+ Haz clic en "Iniciar" para comenzar el primer pomodoro
+ Trabaja concentrado hasta que suene la alarma
+ Toma un descanso corto
+ Repite el ciclo (después de 4 pomodoros, toma un descanso largo)
+ Configuración del Pomodoro
+ Puedes personalizar: - Duración del periodo de trabajo - Duración del descanso corto 
+Duración del descanso largo - Número de pomodoros hasta un descanso largo - Sonidos
+ de alarma - Inicio automático de descansos/pomodoros
+Estadísticas de Pomodoro
+ La aplicación registra: - Pomodoros completados por día/semana/mes - Tiempo total de
+ estudio - Distribución por materias (si asocias pomodoros a materias)
+ Progreso
+ La sección de progreso te permite registrar y analizar tus calificaciones y rendimiento
+ académico.
+ Registrar Calificaciones
+ 1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+10. 
+Ve a la sección "Progreso"
+ Haz clic en el botón "Añadir Calificación"
+ Completa el formulario con:
+ Materia asociada
+ Nombre de la evaluación
+ Calificación obtenida
+ Fecha
+ Peso en la nota final (opcional)
+ Notas adicionales (opcional)
+ Haz clic en "Guardar"
+ Análisis de Calificaciones
+ La sección de progreso te muestra: - Promedio general - Promedio por materia - Gráficos
+ de evolución temporal - Proyección de calificaciones finales
+ Estadísticas
+ La sección de estadísticas te ofrece análisis detallados de tu actividad académica.
+ Estadísticas Disponibles
+ • 
+• 
+• 
+• 
+• 
+Tiempo de Estudio: Horas totales y distribución por materia
+ Tareas: Completadas vs. pendientes, distribución por materia
+ Hábitos: Consistencia y cumplimiento de metas
+ Calificaciones: Evolución temporal y comparativa
+ Actividad: Patrones de uso de la aplicación
+Filtros y Vistas
+ Puedes analizar tus estadísticas por: - Periodo de tiempo (día, semana, mes, semestre) 
+Materia específica - Tipo de actividad
+ Configuración
+ La sección de configuración te permite personalizar la aplicación según tus preferencias.
+ Opciones Disponibles
+ • 
+• 
+• 
+• 
+• 
+• 
+• 
+Tema: Claro, Oscuro o Automático (según preferencia del sistema)
+ Idioma: Español (predeterminado)
+ Notificaciones: Activar/desactivar y configurar tipos
+ Calendario: Primer día de la semana, formato de hora
+ Pomodoro: Configuración predeterminada
+ Almacenamiento: Ver uso y opciones de limpieza
+ Exportación/Importación: Gestionar copias de seguridad
+ Exportación e Importación de Datos
+ La aplicación te permite hacer copias de seguridad de tus datos y restaurarlos cuando
+ sea necesario.
+ Exportar Datos
+ 1. 
+2. 
+3. 
+4. 
+5. 
+Haz clic en el icono de usuario en la esquina superior derecha
+ Selecciona "Exportar datos"
+ Elige qué datos exportar (todo o secciones específicas)
+ Haz clic en "Exportar"
+ Se descargará un archivo JSON con tus datos
+ Importar Datos
+ 1. 
+2. 
+3. 
+4. 
+5. 
+Haz clic en el icono de usuario en la esquina superior derecha
+ Selecciona "Importar datos"
+ Haz clic en "Seleccionar archivo" y elige el archivo JSON previamente exportado
+ Elige si deseas reemplazar o combinar con los datos actuales
+ Haz clic en "Importar"
+Accesibilidad
+ Cerebro Estudiante está diseñado para ser accesible para todos los usuarios.
+ Características de Accesibilidad
+ • 
+• 
+• 
+• 
+• 
+Navegación por Teclado: Todos los elementos son accesibles mediante teclado
+ Contraste Alto: Modo de alto contraste disponible
+ Tamaño de Texto Ajustable: Compatibilidad con zoom del navegador
+ Etiquetas ARIA: Compatibilidad con lectores de pantalla
+ Reducción de Movimiento: Respeta la configuración del sistema para reducir
+ animaciones
+ Atajos de Teclado
+ • 
+• 
+• 
+• 
+Ctrl+B: Abrir/cerrar sidebar
+ Ctrl+K: Enfocar búsqueda
+ Ctrl+D: Cambiar tema
+ Escape: Cerrar modales y menús
+ Preguntas Frecuentes
+ ¿Mis datos están seguros?
+ Sí, todos tus datos se almacenan localmente en tu navegador mediante localStorage. No
+ se envían a ningún servidor externo.
+ ¿Qué pasa si limpio el caché de mi navegador?
+ Si limpias el caché o los datos de navegación, podrías perder la información
+ almacenada. Te recomendamos exportar tus datos regularmente como copia de
+ seguridad.
+ ¿Puedo usar la aplicación en varios dispositivos?
+ Sí, puedes usar la aplicación en cualquier dispositivo con un navegador moderno. Sin
+ embargo, los datos no se sincronizan automáticamente entre dispositivos. Deberás
+ exportar los datos de un dispositivo e importarlos en otro.
+ ¿Funciona sin internet?
+ Sí, una vez cargada la aplicación, funciona completamente sin conexión a internet.
+¿Cómo puedo reportar un problema o sugerir una mejora?
+ Puedes enviar tus comentarios a través de la sección "Acerca de" en el menú de usuario.
+ ¡Gracias por usar Cerebro Estudiante! Esperamos que esta aplicación te ayude a
+ organizar tu vida académica y mejorar tu rendimiento como estudiante
