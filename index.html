@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerebro Estudiantil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cerebro Estudiantil</h1>
+        <nav>
+            <ul>
+                <li><a href="#" data-section="dashboard">Dashboard</a></li>
+                <li><a href="#" data-section="materias">Materias</a></li>
+                <li><a href="#" data-section="tareas">Tareas</a></li>
+                <li><a href="#" data-section="notas">Notas</a></li>
+                <li><a href="#" data-section="calendario">Calendario</a></li>
+                <li><a href="#" data-section="recursos">Recursos</a></li>
+                <li><a href="#" data-section="habitos">Hábitos</a></li>
+                <li><a href="#" data-section="pomodoro">Pomodoro</a></li>
+                <li><a href="#" data-section="progreso">Progreso</a></li>
+                <li><a href="#" data-section="estadisticas">Estadísticas</a></li>
+                <li><a href="#" data-section="configuracion">Configuración</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<main>
+    <section id="dashboard" class="content-section">
+        <h2>Dashboard</h2>
+
+        <div id="tarjetaBienvenida" style="padding: 15px; background-color: #e7f3fe; border-radius: 5px; margin-bottom: 20px;">
+            <h3>¡Bienvenido a Cerebro Estudiantil!</h3>
+            <p>Organiza tu vida académica de manera eficiente.</p>
+            <button id="btnAnadirRapido" class="btn btn-primary">Añadir Rápido</button>
+            <!-- Future: "Añadir Rápido" could be a dropdown to select what to add (Tarea, Materia, etc.) -->
+        </div>
+
+        <div id="dashboardTareasPendientes" style="margin-bottom: 20px;">
+            <h3>Tareas Pendientes</h3>
+            <div id="listaDashboardTareas">
+                <!-- Tareas pendientes se cargarán aquí -->
+            </div>
+        </div>
+
+        <div id="dashboardMisMaterias">
+            <h3>Mis Materias</h3>
+            <div id="listaDashboardMaterias">
+                <!-- Lista de materias se cargará aquí -->
+            </div>
+        </div>
+    </section>
+
+    <section id="materias" class="content-section" style="display: none;">
+    <h2>Materias</h2>
+    <button id="btnAnadirMateria" class="btn">Añadir Nueva Materia</button>
+    
+    <form id="formMateria" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ddd; background-color: #f9f9f9; border-radius: 5px;">
+        <input type="hidden" id="materiaId">
+        <div>
+            <label for="materiaNombre">Nombre de la Materia:</label>
+            <input type="text" id="materiaNombre" required style="width: 98%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="materiaDescripcion">Descripción:</label>
+            <textarea id="materiaDescripcion" rows="3" style="width: 98%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 3px;"></textarea>
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="materiaColor">Color:</label>
+            <input type="color" id="materiaColor" value="#4287f5" style="margin-top: 5px; padding: 3px;">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="materiaProfesor">Profesor:</label>
+            <input type="text" id="materiaProfesor" style="width: 98%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="materiaHorario">Horario:</label>
+            <input type="text" id="materiaHorario" style="width: 98%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+        <div style="margin-top: 15px;">
+            <button type="submit" class="btn btn-primary">Guardar Materia</button>
+            <button type="button" id="btnCancelarMateria" class="btn btn-secondary" style="margin-left: 10px;">Cancelar</button>
+        </div>
+    </form>
+
+    <div id="listaMaterias" style="margin-top: 20px;">
+        <!-- Las materias se mostrarán aquí -->
+    </div>
+</section>
+
+        <section id="tareas" class="content-section" style="display: none;">
+            <h2>Tareas</h2>
+            <!-- Content will be added by JavaScript -->
+        </section>
+
+        <section id="notas" class="content-section" style="display: none;">
+            <h2>Notas</h2>
+            <!-- Content will be added by JavaScript -->
+        </section>
+
+        <section id="calendario" class="content-section" style="display: none;">
+            <h2>Calendario</h2>
+            <!-- Content will be added by JavaScript -->
+        </section>
+
+        <section id="recursos" class="content-section" style="display: none;">
+            <h2>Recursos</h2>
+            <!-- Content will be added by JavaScript -->
+        </section>
+
+        <section id="habitos" class="content-section" style="display: none;">
+            <h2>Hábitos</h2>
+            <!-- Content will be added by JavaScript -->
+        </section>
+
+        <section id="pomodoro" class="content-section" style="display: none;">
+            <h2>Pomodoro</h2>
+            <!-- Content will be added by JavaScript -->
+</section>
+
+<section id="tareas" class="content-section" style="display: none;">
+    <h2>Tareas</h2>
+    <button id="btnAnadirTarea" class="btn">Añadir Nueva Tarea</button>
+    
+    <form id="formTarea" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ddd; background-color: #f9f9f9; border-radius: 5px;">
+        <input type="hidden" id="tareaId">
+        <div>
+            <label for="tareaTitulo">Título de la Tarea:</label>
+            <input type="text" id="tareaTitulo" required style="width: 98%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="tareaDescripcion">Descripción:</label>
+            <textarea id="tareaDescripcion" rows="3" style="width: 98%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 3px;"></textarea>
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="tareaMateriaAsociada">Materia Asociada:</label>
+            <select id="tareaMateriaAsociada" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 3px;">
+                <!-- Opciones de materias se cargarán aquí por JS -->
+            </select>
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="tareaFechaLimite">Fecha Límite:</label>
+            <input type="date" id="tareaFechaLimite" style="width: 98%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="tareaPrioridad">Prioridad:</label>
+            <select id="tareaPrioridad" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 3px;">
+                <option value="Baja">Baja</option>
+                <option value="Media" selected>Media</option>
+                <option value="Alta">Alta</option>
+            </select>
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="tareaEtiquetas">Etiquetas (separadas por coma):</label>
+            <input type="text" id="tareaEtiquetas" style="width: 98%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+         <div style="margin-top: 10px;">
+            <label for="tareaCompletada">Completada:</label>
+            <input type="checkbox" id="tareaCompletada" style="margin-top: 5px;">
+        </div>
+        <div style="margin-top: 15px;">
+            <button type="submit" class="btn btn-primary">Guardar Tarea</button>
+            <button type="button" id="btnCancelarTarea" class="btn btn-secondary" style="margin-left: 10px;">Cancelar</button>
+        </div>
+    </form>
+
+    <div id="listaTareas" style="margin-top: 20px;">
+        <!-- Las tareas se mostrarán aquí -->
+    </div>
+</section>
+
+        <section id="estadisticas" class="content-section" style="display: none;">
+            <h2>Estadísticas</h2>
+            <!-- Content will be added by JavaScript -->
+        </section>
+
+        <section id="configuracion" class="content-section" style="display: none;">
+            <h2>Configuración</h2>
+            <!-- Content will be added by JavaScript -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Cerebro Estudiantil</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
