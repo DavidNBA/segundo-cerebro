@@ -98,3 +98,94 @@ footer {
     background-color: #dc3545;
     color: white;
 }
+
+/* Estilos para la sección de Notas */
+#listaNotas .nota-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+#listaNotas .nota-item h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #007bff; /* O un color temático */
+}
+#listaNotas .nota-item p.contenido-resumen {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+#listaNotas .nota-item small.fecha {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    color: #777;
+}
+#listaNotas .nota-item .acciones button {
+    margin-right: 5px;
+}
+
+/* Estilos para el formulario de notas (opcional, para mejorar la apariencia) */
+#formNota {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+#formNota label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+#formNota input[type="text"],
+#formNota textarea {
+    width: 100%; /* Full width */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-size: 1em;
+}
+
+#formNota textarea {
+    min-height: 150px; /* Adecuar altura mínima */
+    resize: vertical; /* Permitir redimensionar verticalmente */
+}
+
+#formNota .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+#formNota .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+/* Estilos para la sección de Calendario (lista de eventos) */
+#calendarioVistaContainer .evento-item {
+    background-color: #f9f9f9; /* Un color ligeramente diferente al de las notas */
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+#calendarioVistaContainer .evento-item h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+#calendarioVistaContainer .evento-item p {
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+#calendarioVistaContainer .evento-item .acciones button {
+    margin-right: 5px;
+}
+/* Podrías añadir un estilo para diferenciar eventos pasados o por materia (color) en el futuro */

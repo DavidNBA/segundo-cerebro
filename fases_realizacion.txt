@@ -1,0 +1,91 @@
+# Fases de Realización del Proyecto "Cerebro Estudiantil"
+
+Este documento describe las fases planificadas para la implementación de las funcionalidades restantes en la aplicación "Cerebro Estudiantil".
+
+## Fase 0: Análisis y Planificación (Completada)
+- Se analizó la guía de usuario y el código existente.
+- Se identificaron las funcionalidades faltantes y áreas de mejora.
+- Se estableció un plan de desarrollo por fases.
+
+## Fase 1: Implementación del Módulo de Notas (Completada)
+- **Objetivo:** Permitir a los usuarios crear, ver, editar y eliminar notas simples.
+- **Tareas Detalladas:** (Completadas)
+- **Estado:** Completada
+
+## Fase 2: Implementación del Módulo de Calendario (Completada)
+- **Objetivo:** Permitir a los usuarios gestionar eventos académicos en un calendario básico.
+- **Tareas Detalladas:**
+    1.  **Diseño de Datos (localStorage):** (Completada)
+    2.  **HTML (index.html):** (Completada)
+    3.  **JavaScript (script.js):** (Completada)
+    4.  **CSS (style.css):** (Completada)
+    5.  **Pruebas:** (Completada)
+- **Estado:** Completada
+
+## Fase 3: Implementación del Módulo de Recursos (En Curso)
+- **Objetivo:** Permitir a los usuarios organizar enlaces, y referencias a archivos y materiales de estudio, asociándolos a materias.
+- **Tareas Detalladas:**
+    1.  **Diseño de Datos (localStorage):**
+        - Definir la estructura de un objeto 'recurso' (ej: { id: string, titulo: string, descripcion: string, tipo: string (Enlace, Libro, Video, Documento, Otro), url: string (opcional), materiaAsociada: string (opcional), etiquetas: array[string] (opcional) }).
+    2.  **HTML (index.html):**
+        - Crear la estructura básica para la sección de "Recursos" (`<section id="recursos">`).
+        - Incluir un botón "Añadir Nuevo Recurso".
+        - Definir un formulario (inicialmente oculto) para la creación/edición de recursos con campos para título, descripción, tipo (select), URL (si aplica), materia asociada (select) y etiquetas (input de texto, separadas por coma).
+        - Crear un contenedor donde se mostrará la lista de recursos.
+    3.  **JavaScript (script.js):**
+        - Implementar funciones CRUD para los recursos en `localStorage`.
+            - `guardarRecurso(recurso)`
+            - `obtenerRecursos()`
+            - `eliminarRecurso(idRecurso)`
+            - `actualizarRecurso(recursoActualizado)`
+        - Función para mostrar/ocultar el formulario de recursos.
+        - Función para poblar el select de materias asociadas en el formulario de recursos.
+        - Función para cargar un recurso existente en el formulario para edición.
+        - Lógica para renderizar la lista de recursos. Cada recurso debe mostrar su título, tipo, descripción, URL (si es un enlace, hacerlo clickeable), materia asociada y etiquetas.
+        - Event listeners para los botones del formulario de recursos y para los botones de "Editar" y "Eliminar" en cada recurso listado.
+        - Actualizar la función `showSection` para que al hacer clic en "Recursos", se muestre la sección y se carguen/rendericen los recursos.
+    4.  **CSS (style.css):**
+        - Añadir estilos básicos para el formulario de recursos y la lista de recursos.
+    5.  **Pruebas:**
+        - Probar la creación de nuevos recursos de diferentes tipos.
+        - Probar la visualización de la lista de recursos.
+        - Probar la edición y eliminación de recursos.
+        - Verificar que los enlaces son clickeables.
+        - Verificar la persistencia de datos.
+- **Estado:** Pendiente
+
+## Fase 4: Implementación del Módulo de Hábitos
+- **Objetivo:** Ayudar a los usuarios a desarrollar y seguir rutinas de estudio.
+- **Tareas Detalladas:** (Se detallarán al iniciar esta fase)
+- **Estado:** Pendiente
+
+## Fase 5: Implementación del Módulo de Pomodoro
+- **Objetivo:** Proveer un temporizador Pomodoro para gestionar sesiones de estudio.
+- **Tareas Detalladas:** (Se detallarán al iniciar esta fase)
+- **Estado:** Pendiente
+
+## Fase 6: Implementación del Módulo de Progreso (Calificaciones)
+- **Objetivo:** Permitir el registro y análisis de calificaciones.
+- **Tareas Detalladas:** (Se detallarán al iniciar esta fase)
+- **Estado:** Pendiente
+
+## Fase 7: Implementación del Módulo de Estadísticas
+- **Objetivo:** Mostrar análisis detallados de la actividad académica.
+- **Tareas Detalladas:** (Se detallarán al iniciar esta fase)
+- **Estado:** Pendiente
+
+## Fase 8: Implementación de la Configuración y Exportación/Importación
+- **Objetivo:** Permitir la personalización y gestión de datos.
+- **Tareas Detalladas:** (Se detallarán al iniciar esta fase)
+- **Estado:** Pendiente
+
+## Fase 9: Mejoras Generales y Correcciones
+- **Objetivo:** Corregir errores menores, refactorizar código y mejorar la usabilidad general.
+- **Tareas Detalladas:**
+    - Corregir el error de HTML duplicado en `index.html` (renombrar sección de tareas duplicada a `progreso`).
+    - Refactorizar el uso de `alert()` y `confirm()` a `showFeedbackMessage` en el código existente.
+    - Implementar Tour Inicial.
+    - Mejoras de accesibilidad.
+- **Estado:** Pendiente
+
+Este archivo se actualizará al completar cada fase o tarea importante.
