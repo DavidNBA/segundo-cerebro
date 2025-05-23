@@ -72,6 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Materias (Subjects) Feature ---
     const MATERIAS_KEY = 'cerebroEstudiante_materias';
+    const NOTAS_KEY = 'cerebroEstudiante_notas';
+    const EVENTOS_KEY = 'cerebroEstudiante_eventos';
 
     const btnAnadirMateria = document.getElementById('btnAnadirMateria');
     const formMateria = document.getElementById('formMateria');
@@ -551,9 +553,393 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sectionId === 'dashboard') {
             if(typeof displayDashboardTareasPendientes === 'function') displayDashboardTareasPendientes();
             if(typeof displayDashboardMisMaterias === 'function') displayDashboardMisMaterias();
+        } else if (sectionId === 'notas') { // Added for Notas
+            if(typeof displayNotas === 'function') displayNotas();
+        } else if (sectionId === 'calendario') { // Added for Calendario
+            if(typeof displayCalendario === 'function') displayCalendario();
         }
     };
 
     const initialSection = 'dashboard'; 
     window.showSection(initialSection); 
+
+
+    // --- Notas (Notes) Feature ---
+
+    // --- Calendario (Calendar) Feature ---
+    const calendarioVistaContainer = document.getElementById('calendarioVistaContainer');
+    const formEvento = document.getElementById('formEvento');
+    const eventoIdInput = document.getElementById('eventoId');
+    const eventoTituloInput = document.getElementById('eventoTitulo');
+    const eventoDescripcionInput = document.getElementById('eventoDescripcion');
+    const eventoFechaInicioInput = document.getElementById('eventoFechaInicio');
+    const eventoFechaFinInput = document.getElementById('eventoFechaFin');
+    const eventoMateriaAsociadaSelect = document.getElementById('eventoMateriaAsociada');
+    const btnAnadirEvento = document.getElementById('btnAnadirEvento');
+    const btnCancelarEvento = document.getElementById('btnCancelarEvento');
+
+
+    if (btnAnadirEvento) {
+        btnAnadirEvento.addEventListener('click', () => {
+            if (formEvento) formEvento.reset();
+            if (eventoIdInput) eventoIdInput.value = '';
+            populateEventoMateriasDropdown(); // Ensure dropdown is populated
+            toggleFormEvento(true);
+            if (eventoTituloInput) eventoTituloInput.focus();
+        });
+    }
+
+    if (btnCancelarEvento) {
+        btnCancelarEvento.addEventListener('click', () => {
+            toggleFormEvento(false);
+            if (formEvento) formEvento.reset();
+        });
+    }
+
+    // Funciones CRUD para Eventos
+    if (formEvento) {
+        formEvento.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const id = eventoIdInput.value;
+            const titulo = eventoTituloInput.value.trim();
+            const descripcion = eventoDescripcionInput.value.trim();
+            const fechaInicio = eventoFechaInicioInput.value;
+            const fechaFin = eventoFechaFinInput.value;
+            const materiaAsociada = eventoMateriaAsociadaSelect.value;
+
+            if (!titulo || !fechaInicio) {
+                showFeedbackMessage('El título y la fecha de inicio del evento son obligatorios.', 'error');
+                if (!titulo && eventoTituloInput) eventoTituloInput.focus();
+                else if (eventoFechaInicioInput) eventoFechaInicioInput.focus();
+                return;
+            }
+
+            let eventos = window.getEventos();
+            const now = new Date();
+            let fechaCreacion = now;
+
+            if (id) { // Editing existing evento
+                const eventoExistente = eventos.find(e => e.id === id);
+                if (eventoExistente && eventoExistente.fechaCreacion) {
+                    fechaCreacion = new Date(eventoExistente.fechaCreacion); 
+                }
+                eventos = eventos.map(e =>
+                    e.id === id ? { ...e, titulo, descripcion, fechaInicio, fechaFin, materiaAsociada, fechaModificacion: now } : e
+                );
+            } else { // New evento
+                const nuevoEvento = {
+                    id: Date.now().toString(),
+                    titulo,
+                    descripcion,
+                    fechaInicio,
+                    fechaFin,
+                    materiaAsociada,
+                    fechaCreacion: fechaCreacion,
+                    fechaModificacion: now
+                };
+                eventos.push(nuevoEvento);
+            }
+
+            window.saveEventos(eventos);
+            showFeedbackMessage(id ? 'Evento actualizado con éxito.' : 'Evento guardado con éxito.');
+            toggleFormEvento(false);
+            if (formEvento) formEvento.reset();
+            if (typeof displayCalendario === 'function') displayCalendario();
+        });
+    }
+
+    if (typeof window.getEventos === 'undefined') {
+        window.getEventos = function() {
+            const eventosJSON = localStorage.getItem(EVENTOS_KEY);
+            return eventosJSON ? JSON.parse(eventosJSON) : [];
+        }
+    }
+
+    if (typeof window.saveEventos === 'undefined') {
+        window.saveEventos = function(eventos) {
+            localStorage.setItem(EVENTOS_KEY, JSON.stringify(eventos));
+        }
+    }
+
+    const formNota = document.getElementById('formNota');
+    const notaIdInput = document.getElementById('notaId');
+    const notaTituloInput = document.getElementById('notaTitulo');
+    const notaContenidoInput = document.getElementById('notaContenido');
+    const btnAnadirNota = document.getElementById('btnAnadirNota');
+    const btnCancelarNota = document.getElementById('btnCancelarNota');
+    const listaNotasContainer = document.getElementById('listaNotas');
+
+    function displayCalendario() {
+        if (!calendarioVistaContainer) return;
+        calendarioVistaContainer.innerHTML = '';
+        const eventos = window.getEventos();
+        const materias = window.getMaterias(); // Para obtener nombres de materias
+
+        if (eventos.length === 0) {
+            calendarioVistaContainer.innerHTML = '<p>No hay eventos en el calendario. ¡Añade uno!</p>';
+            return;
+        }
+
+        // Ordenar eventos por fecha de inicio
+        eventos.sort((a, b) => new Date(a.fechaInicio) - new Date(b.fechaInicio));
+
+        const ul = document.createElement('ul');
+        ul.style.listStyleType = 'none';
+        ul.style.padding = '0';
+
+        eventos.forEach(evento => {
+            const li = document.createElement('li');
+            li.className = 'evento-item'; // Para CSS styling
+            li.setAttribute('data-id', evento.id);
+
+            const tituloElem = document.createElement('h3');
+            tituloElem.textContent = evento.titulo;
+
+            const descripcionElem = document.createElement('p');
+            descripcionElem.textContent = evento.descripcion || 'Sin descripción.';
+
+            const fechaInicioElem = document.createElement('p');
+            fechaInicioElem.innerHTML = `<strong>Inicio:</strong> ${new Date(evento.fechaInicio).toLocaleDateString()}`;
+            
+            const fechaFinElem = document.createElement('p');
+            if (evento.fechaFin) {
+                fechaFinElem.innerHTML = `<strong>Fin:</strong> ${new Date(evento.fechaFin).toLocaleDateString()}`;
+            }
+
+            const materiaElem = document.createElement('p');
+            if (evento.materiaAsociada) {
+                const materia = materias.find(m => m.id === evento.materiaAsociada);
+                materiaElem.innerHTML = `<strong>Materia:</strong> ${materia ? materia.nombre : 'No especificada'}`;
+                if(materia && materia.color) { // Opcional: Colorear borde izquierdo o texto
+                    li.style.borderLeft = `5px solid ${materia.color}`;
+                }
+            }
+            
+            const fechaModElem = document.createElement('small');
+            fechaModElem.className = 'fecha'; // Reutilizar estilo si aplica
+            fechaModElem.textContent = `Última modificación: ${new Date(evento.fechaModificacion).toLocaleString()}`;
+            fechaModElem.style.display = 'block'; // Asegurar que sea un bloque
+            fechaModElem.style.marginTop = '5px';
+
+
+            const accionesDiv = document.createElement('div');
+            accionesDiv.className = 'acciones';
+            accionesDiv.style.marginTop = '10px';
+
+            const btnEditar = document.createElement('button');
+            btnEditar.textContent = 'Editar';
+            btnEditar.className = 'btn btn-secondary btn-sm';
+            btnEditar.addEventListener('click', () => loadEventoForEdit(evento.id));
+
+            const btnEliminar = document.createElement('button');
+            btnEliminar.textContent = 'Eliminar';
+            btnEliminar.className = 'btn btn-danger btn-sm';
+            btnEliminar.addEventListener('click', () => deleteEvento(evento.id));
+
+            accionesDiv.appendChild(btnEditar);
+            accionesDiv.appendChild(btnEliminar);
+
+            li.appendChild(tituloElem);
+            li.appendChild(descripcionElem);
+            li.appendChild(fechaInicioElem);
+            if (evento.fechaFin) li.appendChild(fechaFinElem);
+            if (evento.materiaAsociada) li.appendChild(materiaElem);
+            li.appendChild(fechaModElem);
+            li.appendChild(accionesDiv);
+            ul.appendChild(li);
+        });
+        calendarioVistaContainer.appendChild(ul);
+    }
+
+    function loadEventoForEdit(id) {
+        const eventos = window.getEventos();
+        const evento = eventos.find(e => e.id === id);
+        if (evento) {
+            if (eventoIdInput) eventoIdInput.value = evento.id;
+            if (eventoTituloInput) eventoTituloInput.value = evento.titulo;
+            if (eventoDescripcionInput) eventoDescripcionInput.value = evento.descripcion || '';
+            if (eventoFechaInicioInput) eventoFechaInicioInput.value = evento.fechaInicio;
+            if (eventoFechaFinInput) eventoFechaFinInput.value = evento.fechaFin || '';
+            if (typeof populateEventoMateriasDropdown === 'function') populateEventoMateriasDropdown();
+            if (eventoMateriaAsociadaSelect) eventoMateriaAsociadaSelect.value = evento.materiaAsociada || '';
+            toggleFormEvento(true);
+            if (eventoTituloInput) eventoTituloInput.focus();
+        }
+    }
+
+    function deleteEvento(id) {
+        if (confirm('¿Estás seguro de que quieres eliminar este evento? Esta acción no se puede deshacer.')) {
+            let eventos = window.getEventos();
+            eventos = eventos.filter(e => e.id !== id);
+            window.saveEventos(eventos);
+            showFeedbackMessage('Evento eliminado.', 'error'); // Or 'success'
+            if (typeof displayCalendario === 'function') displayCalendario();
+        }
+    }
+
+    // Funciones CRUD para Notas
+    if (typeof window.getNotas === 'undefined') {
+        window.getNotas = function() {
+            const notasJSON = localStorage.getItem(NOTAS_KEY);
+            return notasJSON ? JSON.parse(notasJSON) : [];
+        }
+    }
+
+    function toggleFormNota(show = true) {
+        if (formNota) {
+            formNota.style.display = show ? 'block' : 'none';
+        }
+    }
+
+    if (btnAnadirNota) {
+        btnAnadirNota.addEventListener('click', () => {
+            if (formNota) formNota.reset();
+            if (notaIdInput) notaIdInput.value = '';
+            toggleFormNota(true);
+            if (notaTituloInput) notaTituloInput.focus();
+        });
+    }
+
+    if (btnCancelarNota) {
+        btnCancelarNota.addEventListener('click', () => {
+            toggleFormNota(false);
+            if (formNota) formNota.reset();
+        });
+    }
+
+    if (formNota) {
+        formNota.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const id = notaIdInput.value;
+            const titulo = notaTituloInput.value.trim();
+            const contenido = notaContenidoInput.value.trim();
+
+            if (!titulo) {
+                showFeedbackMessage('El título de la nota es obligatorio.', 'error');
+                if (notaTituloInput) notaTituloInput.focus();
+                return;
+            }
+
+            let notas = window.getNotas();
+            const now = new Date();
+            let fechaCreacion = now;
+
+            if (id) { // Editing existing note
+                const notaExistente = notas.find(n => n.id === id);
+                if (notaExistente && notaExistente.fechaCreacion) {
+                    fechaCreacion = new Date(notaExistente.fechaCreacion); // Preserve original creation date
+                }
+                notas = notas.map(n => 
+                    n.id === id ? { ...n, titulo, contenido, fechaModificacion: now } : n
+                );
+            } else { // New note
+                const nuevaNota = {
+                    id: Date.now().toString(),
+                    titulo,
+                    contenido,
+                    fechaCreacion: fechaCreacion,
+                    fechaModificacion: now
+                };
+                notas.push(nuevaNota);
+            }
+
+            window.saveNotas(notas);
+            showFeedbackMessage(id ? 'Nota actualizada con éxito.' : 'Nota guardada con éxito.');
+            toggleFormNota(false);
+            if (formNota) formNota.reset();
+            if (typeof displayNotas === 'function') displayNotas();
+        });
+    }
+
+    function displayNotas() {
+        if (!listaNotasContainer) return;
+        listaNotasContainer.innerHTML = '';
+        const notas = window.getNotas();
+
+        if (notas.length === 0) {
+            listaNotasContainer.innerHTML = '<p>No hay notas aún. ¡Añade una!</p>';
+            return;
+        }
+
+        const ul = document.createElement('ul');
+        ul.style.listStyleType = 'none';
+        ul.style.padding = '0';
+
+        notas.sort((a, b) => new Date(b.fechaModificacion) - new Date(a.fechaModificacion)); // Sort by most recently modified
+
+        notas.forEach(nota => {
+            const li = document.createElement('li');
+            li.className = 'nota-item'; // For CSS styling
+            li.setAttribute('data-id', nota.id);
+
+            const tituloElem = document.createElement('h3');
+            tituloElem.textContent = nota.titulo;
+
+            const contenidoResumen = document.createElement('p');
+            contenidoResumen.className = 'contenido-resumen';
+            contenidoResumen.textContent = nota.contenido.substring(0, 100) + (nota.contenido.length > 100 ? '...' : '');
+
+            const fechaModElem = document.createElement('small');
+            fechaModElem.className = 'fecha';
+            fechaModElem.textContent = `Última modificación: ${new Date(nota.fechaModificacion).toLocaleString()}`;
+            
+            const fechaCreacionElem = document.createElement('small');
+            fechaCreacionElem.className = 'fecha';
+            fechaCreacionElem.textContent = `Creación: ${new Date(nota.fechaCreacion).toLocaleString()}`;
+
+
+            const accionesDiv = document.createElement('div');
+            accionesDiv.className = 'acciones';
+
+            const btnEditar = document.createElement('button');
+            btnEditar.textContent = 'Editar';
+            btnEditar.className = 'btn btn-secondary btn-sm'; // Added btn-sm for smaller buttons
+            btnEditar.addEventListener('click', () => loadNotaForEdit(nota.id));
+
+            const btnEliminar = document.createElement('button');
+            btnEliminar.textContent = 'Eliminar';
+            btnEliminar.className = 'btn btn-danger btn-sm'; // Added btn-sm
+            btnEliminar.addEventListener('click', () => deleteNota(nota.id));
+
+            accionesDiv.appendChild(btnEditar);
+            accionesDiv.appendChild(btnEliminar);
+
+            li.appendChild(tituloElem);
+            li.appendChild(contenidoResumen);
+            li.appendChild(fechaModElem);
+            li.appendChild(fechaCreacionElem);
+            li.appendChild(accionesDiv);
+            ul.appendChild(li);
+        });
+        listaNotasContainer.appendChild(ul);
+    }
+
+    function loadNotaForEdit(id) {
+        const notas = window.getNotas();
+        const nota = notas.find(n => n.id === id);
+        if (nota) {
+            if (notaIdInput) notaIdInput.value = nota.id;
+            if (notaTituloInput) notaTituloInput.value = nota.titulo;
+            if (notaContenidoInput) notaContenidoInput.value = nota.contenido;
+            toggleFormNota(true);
+            if (notaTituloInput) notaTituloInput.focus();
+        }
+    }
+
+    function deleteNota(id) {
+        if (confirm('¿Estás seguro de que quieres eliminar esta nota? Esta acción no se puede deshacer.')) {
+            let notas = window.getNotas();
+            notas = notas.filter(n => n.id !== id);
+            window.saveNotas(notas);
+            showFeedbackMessage('Nota eliminada.', 'error'); // Or 'success' depending on desired feedback
+            if (typeof displayNotas === 'function') displayNotas();
+        }
+    }
+
+    if (typeof window.saveNotas === 'undefined') {
+        window.saveNotas = function(notas) {
+            localStorage.setItem(NOTAS_KEY, JSON.stringify(notas));
+        }
+    }
+
 });
